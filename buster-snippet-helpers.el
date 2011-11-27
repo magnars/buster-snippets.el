@@ -70,5 +70,8 @@
                         '(lambda (word) (capitalize (downcase word)))
                         (split-name s)) " "))
 
+(defun comma-if-looking-at-whitespace-and-quotes ()
+  (if (looking-at "\\(\\s \\|\n\\)+\"") "," ""))
+
 (provide 'buster-snippet-helpers)
 ;;; buster-snippet-helpers.el ends here
