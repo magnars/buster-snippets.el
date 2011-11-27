@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: buster.testCase.node
+# key: tc
+# --
+var buster = require("buster");
+var assert = buster.assert;
+var refute = buster.refute;
+
+var ${4:${1:$(lower-camel-case (file-name-nondirectory yas/text))}} = require("${1:../lib/${2:`(chop-test-suffix (buffer-file-name-body))`}}")$3;
+
+buster.testCase('${5:${1:$(capitalized-words (file-name-nondirectory yas/text))`}}', {
+  tt$0
+});

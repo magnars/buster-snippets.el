@@ -32,6 +32,10 @@
         (substring s 0 pos)
       s)))
 
+(defun chop-test-suffix (s)
+  "Remove -test or _test from end of S"
+  (chop-suffix "-test" (chop-suffix "_test" s)))
+
 (defun buffer-file-name-body ()
   "Buffer file name stripped of directory and extension"
   (if (buffer-file-name)
