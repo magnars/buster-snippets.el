@@ -5,6 +5,6 @@
                             (or (buffer-file-name) load-file-name)))
 
 ;; Load snippets
-(yas/load-directory (expand-file-name "snippets" dotfiles-dir))
+(yas/load-directory (expand-file-name "snippets" buster-snippets-root))
 
 (provide 'buster-snippets)
