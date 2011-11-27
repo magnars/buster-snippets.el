@@ -1,4 +1,4 @@
-;;; snippet-helpers.el --- Making snippet code look snazzy since 2011
+;;; buster-snippet-helpers.el --- Making snippet code look snazzy since 2011
 
 ;; Copyright (C) 2011 Magnar Sveen
 
@@ -20,20 +20,23 @@
 
 ;;; Commentary:
 
-;; Helper methods used in snippets
+;; Helper methods used in buster-snippets
 
 ;;; Code:
 
 (defun chop-suffix (suffix s)
   "Remove string 'suffix' if it is at end of string 's'"
   (let ((pos (- (length suffix))))
-    (if (string= suffix (substring s pos))
+    (if (and (>= (length s) (length suffix))
+             (string= suffix (substring s pos)))
         (substring s 0 pos)
       s)))
 
 (defun buffer-file-name-body ()
   "Buffer file name stripped of directory and extension"
-  (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))
+  (if (buffer-file-name)
+      (file-name-nondirectory (file-name-sans-extension (buffer-file-name)))
+    ""))
 
 (defun split-name (s)
   "Split name into list of words"
@@ -67,5 +70,5 @@
                         '(lambda (word) (capitalize (downcase word)))
                         (split-name s)) " "))
 
-(provide 'snippet-helpers)
-;;; snippet-helpers.el ends here
+(provide 'buster-snippet-helpers)
+;;; buster-snippet-helpers.el ends here
