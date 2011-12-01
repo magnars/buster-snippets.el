@@ -58,9 +58,13 @@ Then require buster-snippets at some point after yasnippet.
 
 ## Customization
 
-Add "use strict"-declarations to the test cases:
+Add `"use strict"`-declarations to the test cases:
 
     (setq buster-use-strict t)
+
+Declare `assert` and `refute` if you've disabled additional globals:
+
+    (setq buster-exposed-asserts nil)
 
 ## License
 

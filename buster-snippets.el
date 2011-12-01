@@ -78,14 +78,22 @@
 
 ;; Customization
 
-;; Add "use strict"-declarations to the test cases:
+;; Add `"use strict"`-declarations to the test cases:
 ;;
 ;;     (setq buster-use-strict t)
+;;
+;; Declare `assert` and `refute` if you've disabled additional globals:
+;;
+;;     (setq buster-exposed-asserts nil)
+;;
 
 ;;; Code:
 
 (defcustom buster-use-strict nil
-  "On non-nil value, add strict-declarations to test cases")
+  "On non-nil value, add strict-declarations to test cases.")
+
+(defcustom buster-exposed-asserts t
+  "On nil value, declare assert and refute in local scope.")
 
 (require 'buster-snippet-helpers)
 

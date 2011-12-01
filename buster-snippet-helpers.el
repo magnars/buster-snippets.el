@@ -80,7 +80,14 @@
 ;;
 
 (defun buster--maybe-use-strict ()
-  (if buster-use-strict "\"use strict\";\n\n" ""))
+  (if buster-use-strict
+      "\"use strict\";\n\n"
+    ""))
+
+(defun buster--maybe-add-local-asserts ()
+  (if (not buster-exposed-asserts)
+      "var assert = buster.assert;\nvar refute = buster.refute;\n\n"
+    ""))
 
 (provide 'buster-snippet-helpers)
 ;;; buster-snippet-helpers.el ends here
