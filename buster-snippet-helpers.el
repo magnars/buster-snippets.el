@@ -77,5 +77,10 @@
 (defun comma-if-looking-at-whitespace-and-quotes ()
   (if (looking-at "\\(\\s \\|\n\\)+\"") "," ""))
 
+;;
+
+(defun buster--maybe-use-strict ()
+  (if buster-use-strict "\"use strict\";\n\n" ""))
+
 (provide 'buster-snippet-helpers)
 ;;; buster-snippet-helpers.el ends here

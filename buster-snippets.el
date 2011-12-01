@@ -76,7 +76,16 @@
 ;;
 ;;     (require 'buster-snippets)
 
+;; Customization
+
+;; Add "use strict"-declarations to the test cases:
+;;
+;;     (setq buster-use-strict t)
+
 ;;; Code:
+
+(defcustom buster-use-strict nil
+  "On non-nil value, add strict-declarations to test cases")
 
 (require 'buster-snippet-helpers)
 

@@ -56,6 +56,12 @@ Then require buster-snippets at some point after yasnippet.
 
     (require 'buster-snippets)
 
+## Customization
+
+Add "use strict"-declarations to the test cases:
+
+    (setq buster-use-strict t)
+
 ## License
 
 Copyright (C) 2011 Magnar Sveen
