@@ -2,8 +2,10 @@
 # name: buster.testCase.node
 # key: tc
 # --
-`(buster--maybe-use-strict)`var buster = require("buster");
-`(buster--maybe-add-local-asserts)`var ${4:${1:$(lower-camel-case (file-name-nondirectory yas/text))}} = require("${1:../lib/${2:`(chop-test-suffix (buffer-file-name-body))`}}")$3;
+`(buster--maybe-use-strict)
+`var buster = require("buster");
+`(buster--maybe-add-local-asserts)
+`var ${4:${1:$(lower-camel-case (file-name-nondirectory yas/text))}} = require("${1:../lib/${2:`(chop-test-suffix (buffer-file-name-body))`}}")$3;
 
 buster.testCase('${5:${1:$(capitalized-words (file-name-nondirectory yas/text))`}}', {
   tt$0
