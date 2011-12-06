@@ -66,6 +66,17 @@ Declare `assert` and `refute` if you've disabled additional globals:
 
     (setq buster-exposed-asserts nil)
 
+Set the default global namespace-object on a per-project basis:
+
+    (add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "projects/zombietdd" (buffer-file-name))
+              (setq js2-additional-externs '("ZOMBIE"))
+              (setq buster-default-global "ZOMBIE"))))
+
+    ;; example from one of my projects
+
+
 ## License
 
 Copyright (C) 2011 Magnar Sveen

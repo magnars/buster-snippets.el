@@ -4,13 +4,13 @@
 # --
 if (typeof require === "function" && typeof module !== "undefined") {
   var buster = require("buster");
-  var ${5:global} = { ${4:${1:$(lower-camel-case (file-name-nondirectory yas/text))}}: require("${1:../lib/${2:`(chop-test-suffix (buffer-file-name-body))`}}")$3 };
+  var ${5:`buster-default-global`} = { ${4:${2:$(lower-camel-case (file-name-nondirectory yas/text))}}: require("${1:../lib/}${2:`(chop-test-suffix (buffer-file-name-body))`}")$3 };
 }
 
 (function ($8) {
   `(buster--maybe-use-strict)
  ``(buster--maybe-add-local-asserts)
- `buster.testCase('${6:${1:$(capitalized-words (file-name-nondirectory yas/text))`}}', {
+ `buster.testCase('${6:${2:$(capitalized-words (file-name-nondirectory yas/text))`}}', {
     tt$0
   });
 }($7));

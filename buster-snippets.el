@@ -86,6 +86,16 @@
 ;;
 ;;     (setq buster-exposed-asserts nil)
 ;;
+;; Set the default global namespace-object on a per-project basis:
+;;
+;;     (add-hook 'js2-mode-hook
+;;           (lambda ()
+;;             (when (string-match-p "projects/zombietdd" (buffer-file-name))
+;;               (setq js2-additional-externs '("ZOMBIE"))
+;;               (setq buster-default-global "ZOMBIE"))))
+;;
+;;     ;; example from one of my projects
+;;
 
 ;;; Code:
 
@@ -94,6 +104,10 @@
 
 (defcustom buster-exposed-asserts t
   "On nil value, declare assert and refute in local scope.")
+
+(defvar buster-default-global "GLOBAL"
+  "The default suggested global namespace-object.")
+(make-variable-buffer-local 'buster-default-global)
 
 (require 'buster-snippet-helpers)
 
