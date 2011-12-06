@@ -79,6 +79,21 @@
 
 ;;
 
+(defun buster--guess-lib-folder ()
+  (let ((test-dir (file-name-directory (buffer-file-name))))
+    (if (string-match-p "/test/" test-dir)
+        (let ((lib-dir (buster--lib-folder-with-same-nesting test-dir)))
+          (if (file-exists-p lib-dir) lib-dir)))))
+
+(defun buster--lib-folder-with-same-nesting (test-dir)
+  (let ((lib-dir (replace-regexp-in-string ".+/test/\\(.*\\)" "lib/\\1" test-dir)))
+    (concat (buster--path-out-of-test lib-dir) lib-dir)))
+
+(defun buster--path-out-of-test (lib-dir)
+  (mapconcat 'identity (mapcar
+                        '(lambda (word) "../")
+                        (split-string lib-dir "/" t)) ""))
+
 (defun buster--maybe-use-strict ()
   (if buster-use-strict
       "\"use strict\";\n\n"
