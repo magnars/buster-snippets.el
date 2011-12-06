@@ -58,15 +58,15 @@ Then require buster-snippets at some point after yasnippet.
 
 ## Customization
 
-* Add `"use strict"`-declarations to the test cases:
+Add `"use strict"`-declarations to the test cases:
 
     (setq buster-use-strict t)
 
-* Declare `assert` and `refute` if you've disabled additional globals:
+Declare `assert` and `refute` if you've disabled additional globals:
 
     (setq buster-exposed-asserts nil)
 
-* Set the default global namespace-object on a per-project basis:
+Set the default global namespace-object on a per-project basis:
 
     (add-hook 'js2-mode-hook
           (lambda ()
@@ -76,7 +76,7 @@ Then require buster-snippets at some point after yasnippet.
 
     ;; example from one of my projects
 
-* Add the default global to the IIFE (immediately invoked function expression)
+Add the default global to the IIFE (immediately invoked function expression)
 
     (setq buster-add-default-global-to-iife t)
 
