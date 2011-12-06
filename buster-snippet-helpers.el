@@ -77,13 +77,13 @@
 (defun comma-if-looking-at-whitespace-and-quotes ()
   (if (looking-at "\\(\\s \\|\n\\)+\"") "," ""))
 
-;;
-
+;; Guess lib-folder
 (defun buster--guess-lib-folder ()
-  (let ((test-dir (file-name-directory (buffer-file-name))))
-    (if (string-match-p "/test/" test-dir)
-        (let ((lib-dir (buster--lib-folder-with-same-nesting test-dir)))
-          (if (file-exists-p lib-dir) lib-dir)))))
+  (if (buffer-file-name)
+      (let ((test-dir (file-name-directory (buffer-file-name))))
+        (if (string-match-p "/test/" test-dir)
+            (let ((lib-dir (buster--lib-folder-with-same-nesting test-dir)))
+              (if (file-exists-p lib-dir) lib-dir))))))
 
 (defun buster--lib-folder-with-same-nesting (test-dir)
   (let ((lib-dir (replace-regexp-in-string ".+/test/\\(.*\\)" "lib/\\1" test-dir)))
@@ -94,11 +94,33 @@
                         '(lambda (word) "../")
                         (split-string lib-dir "/" t)) ""))
 
+;; Shortcut globals for iife
+(defun buster--shortcuts-for-globals (globals)
+  (mapconcat 'identity (mapcar
+                        'buster--global-shortcut
+                        (buster--params globals)) ", "))
+
+(defun buster--last-word (s)
+  (car (last (split-string s "\\." t))))
+
+(defun buster--first-char (s)
+  (car (split-string s "" t)))
+
+(defun buster--global-shortcut (s)
+  (if (string-match-p "jquery" s)
+      "$"
+    (upcase (buster--first-char (buster--last-word s)))))
+
+(defun buster--params (s)
+  (split-string s "[, ]" t))
+
+;; Maybe use strict
 (defun buster--maybe-use-strict ()
   (if buster-use-strict
       "\"use strict\";\n\n"
     ""))
 
+;; Maybe add local asserts
 (defun buster--maybe-add-local-asserts ()
   (if (not buster-exposed-asserts)
       "var assert = buster.assert;\nvar refute = buster.refute;\n\n"

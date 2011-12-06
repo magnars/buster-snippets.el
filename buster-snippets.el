@@ -96,6 +96,17 @@
 ;;
 ;;     ;; example from one of my projects
 ;;
+;; Add the default global to the IIFE (immediately invoked function expression)
+;;
+;;     (setq buster-add-default-global-to-iife t)
+;;
+;; The global will by default be shortened to a one-letter var, like this:
+;;
+;;     (function (Z) {
+;;
+;;        // use Z instead of ZOMBIE inside the namespace
+;;
+;;     }(ZOMBIE));
 
 ;;; Code:
 
@@ -105,7 +116,11 @@
 (defcustom buster-exposed-asserts t
   "On nil value, declare assert and refute in local scope.")
 
-(defvar buster-default-global "GLOBAL"
+(defcustom buster-add-default-global-to-iife nil
+  "On non-nil value, add the default global to the wrapping iife
+   (immediately invoked function expression)")
+
+(defcustom buster-default-global "GLOBAL"
   "The default suggested global namespace-object.")
 (make-variable-buffer-local 'buster-default-global)
 

@@ -2,10 +2,10 @@
 # name: buster.testCase.browser
 # key: tc
 # --
-(function ($3) {
+(function (${3:${2:$(buster--shortcuts-for-globals yas/text)}}) {
   `(buster--maybe-use-strict)
  ``(buster--maybe-add-local-asserts)
 `buster.testCase('${1:`(chop-suffix " Test" (capitalized-words (buffer-file-name-body)))`}', {
     tt$0
   });
-}($2));
+}(${2:`(if buster-add-default-global-to-iife buster-default-global)`}));
