@@ -50,7 +50,7 @@ Refutations mirrors assertions exactly, except that they start with `re` instead
 If you haven't, install [yasnippet](http://capitaomorte.github.com/yasnippet/)
 then install buster-snippets like so:
 
-    git submodule add git@github.com:magnars/buster-snippets.el.git site-lisp/buster-snippets
+    git submodule add https://github.com/magnars/buster-snippets.el.git site-lisp/buster-snippets
 
 Then require buster-snippets at some point after yasnippet.
 
