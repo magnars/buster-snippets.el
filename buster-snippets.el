@@ -124,6 +124,12 @@
   "The default suggested global namespace-object.")
 (make-variable-buffer-local 'buster-default-global)
 
+(defcustom buster-testcase-snippets-enabled t
+  "A buffer local way of turning off the testCase snippets.
+To let you define your own testCase snippets for other
+frameworks while still using the buster-assertions package.")
+(make-variable-buffer-local 'buster-testcase-snippets-enabled)
+
 (require 'buster-snippet-helpers)
 
 ;; Find buster-snippets root directory
