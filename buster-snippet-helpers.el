@@ -68,6 +68,12 @@
                         '(lambda (word) (capitalize (downcase word)))
                         (split-name s)) ""))
 
+(defun snake-case (s)
+  "Convert string 's' to snake_case string."
+  (mapconcat 'identity (mapcar
+                        '(lambda (word) (downcase word))
+                        (split-name s)) "_"))
+
 (defun capitalized-words (s)
   "Convert string 's' to Capitalized Words string."
   (mapconcat 'identity (mapcar
