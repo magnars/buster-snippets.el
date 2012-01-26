@@ -51,6 +51,7 @@
 ;;
 ;;     asc - assert.called
 ;;     asc1 - assert.calledOnce
+;;     asc1w - assert.calledOnceWith
 ;;     asc2 - assert.calledTwice
 ;;     asc3 - assert.calledThrice
 ;;     ascw - assert.calledWith
