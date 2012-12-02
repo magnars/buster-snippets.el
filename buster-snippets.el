@@ -141,6 +141,6 @@ frameworks while still using the buster-assertions package.")
                             (or (buffer-file-name) load-file-name)))
 
 ;; Load snippets
-(yas/load-directory (expand-file-name "snippets" buster-snippets-root))
+(yas-load-directory (expand-file-name "snippets" buster-snippets-root))
 
 (provide 'buster-snippets)
