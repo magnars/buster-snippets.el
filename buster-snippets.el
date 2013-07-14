@@ -111,6 +111,8 @@
 
 ;;; Code:
 
+(require 'yasnippet)
+
 (defcustom buster-use-strict nil
   "On non-nil value, add strict-declarations to test cases.")
 
@@ -136,11 +138,18 @@ frameworks while still using the buster-assertions package.")
 
 (require 'buster-snippet-helpers)
 
-;; Find buster-snippets root directory
-(setq buster-snippets-root (file-name-directory
-                            (or (buffer-file-name) load-file-name)))
+(setq buster-snippets-root (file-name-directory (or load-file-name
+                                                     (buffer-file-name))))
 
-;; Load snippets
-(yas-load-directory (expand-file-name "snippets" buster-snippets-root))
+;;;###autoload
+(defun buster-snippets-initialize ()
+  (let ((snip-dir (expand-file-name "snippets" buster-snippets-root)))
+    (when (boundp 'yas-snippet-dirs)
+      (add-to-list 'yas-snippet-dirs snip-dir t))
+    (yas/load-directory snip-dir)))
+
+;;;###autoload
+(eval-after-load "yasnippet"
+  '(buster-snippets-initialize))
 
 (provide 'buster-snippets)
