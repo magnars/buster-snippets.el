@@ -123,7 +123,7 @@
   "On non-nil value, add the default global to the wrapping iife
    (immediately invoked function expression)")
 
-(defcustom buster-test-prefix "should "
+(defcustom buster-test-prefix ""
   "The default buster test prefix.")
 
 (defcustom buster-default-global "GLOBAL"
