@@ -142,8 +142,8 @@ frameworks while still using the buster-assertions package.")
 
 (require 'buster-snippet-helpers)
 
-(setq buster-snippets-root (file-name-directory (or load-file-name
-                                                     (buffer-file-name))))
+(defvar buster-snippets-root (file-name-directory (or load-file-name
+                                                      (buffer-file-name))))
 
 ;;;###autoload
 (defun buster-snippets-initialize ()
