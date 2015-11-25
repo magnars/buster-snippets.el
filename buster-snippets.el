@@ -113,6 +113,10 @@
 
 (require 'yasnippet)
 
+(defgroup buster-snippets nil
+  "Yasnippets for the Buster javascript testing framework."
+  :group 'yasnippet)
+
 (defcustom buster-use-strict nil
   "On non-nil value, add strict-declarations to test cases.")
 
