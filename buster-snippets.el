@@ -150,7 +150,7 @@ frameworks while still using the buster-assertions package.")
   (let ((snip-dir (expand-file-name "snippets" buster-snippets-root)))
     (when (boundp 'yas-snippet-dirs)
       (add-to-list 'yas-snippet-dirs snip-dir t))
-    (yas/load-directory snip-dir)))
+    (yas-load-directory snip-dir)))
 
 ;;;###autoload
 (eval-after-load "yasnippet"
