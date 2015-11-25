@@ -157,3 +157,4 @@ frameworks while still using the buster-assertions package.")
   '(buster-snippets-initialize))
 
 (provide 'buster-snippets)
+;;; buster-snippets.el ends here
